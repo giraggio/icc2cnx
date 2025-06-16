@@ -29,7 +29,7 @@ st.set_page_config(page_title="Buscador ICC2 CNX", layout="wide")
 st.title("🔍 Buscador de Palabras Clave ICC2 CNX")
 
 # Ruta al archivo CSV
-archivo = r'C:\Users\GabrielRaggio\OneDrive - SLR Consulting\Documentos\Automatización PAC\Aplicación CNX\División words obs\CSV ICC 1\icc 2.csv'
+archivo = 'https://raw.githubusercontent.com/giraggio/icc2cnx/refs/heads/main/icc%202.csv'
 
 # Inputs y estados
 if 'buscar' not in st.session_state:
