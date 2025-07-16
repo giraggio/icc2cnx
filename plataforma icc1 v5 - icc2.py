@@ -29,7 +29,7 @@ st.set_page_config(page_title="Buscador ICC2 CNX", layout="wide")
 st.title("🔍 Buscador de Palabras Clave ICC2 CNX")
 
 # Ruta al archivo CSV
-archivo = 'https://raw.githubusercontent.com/giraggio/icc2cnx/refs/heads/main/icc%202.csv'
+archivo = 'https://raw.githubusercontent.com/giraggio/icc2cnx/refs/heads/main/observaciones_finales.csv'
 
 # Inputs y estados
 if 'buscar' not in st.session_state:
@@ -83,12 +83,12 @@ if st.session_state['buscar']:
             .explode("coincidencias")
             .rename(columns={
                 "coincidencias": "Palabra Clave",
-                "nombre_archivo": "Archivo"
+                "nombre_archivo": "Número Observación"
             })
-            [["Palabras Clave (combinadas)", "Archivo"]]
+            [["Palabras Clave (combinadas)", "Número Observación"]]
             .drop_duplicates()
             .reset_index(drop=True)
         )
 
-        st.success(f"Se encontraron {len(df_resultados)} coincidencias en {df_resultados['Archivo'].nunique()} archivos.")
+        st.success(f"Se encontraron {len(df_resultados)} coincidencias en {df_resultados['Número Observación'].nunique()} observaciones.")
         st.dataframe(df_resultados)
