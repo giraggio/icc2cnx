@@ -50,7 +50,7 @@ patrones = {p: construir_patron(normalizar(p)) for p in palabras_clave}
 if st.button("Buscar"):
     st.session_state['buscar'] = True
 
-    df = pd.read_csv(archivo)
+    df = pd.read_csv(archivo, dtype={"Número Observación": str})
     df["texto_norm"] = df["texto"].astype(str).apply(normalizar)
 
     # Detectar coincidencias
